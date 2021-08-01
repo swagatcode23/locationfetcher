@@ -1,0 +1,3 @@
+include ':location-fetcher'
+include ':app'
+rootProject.name = "LocFetcherSample"

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.worriorx.loc_fetcher">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+
+    <application
+        android:allowBackup="true">
+
+        <service android:name="io.worriorx.loc_fetcher.LocationFetchService"
+            android:enabled="true"
+            android:exported="false"/>
+    </application>
+
+
+</manifest>
