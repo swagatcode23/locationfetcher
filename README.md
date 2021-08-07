@@ -1,6 +1,8 @@
 # locationfetcher
 ## Get continuous location points
 
+![giphy](https://user-images.githubusercontent.com/39851751/128608159-e55ccde3-e02b-4f88-ae7b-fdaa8a559d0f.gif)
+
 [![N|Solid](https://ethiccoders.com/ethiccoders/wp-content/uploads/2013/11/android-icon.png)](https://www.android.com/intl/en_in/)
 [![N|Solid](https://deviniti.com/wp-content/uploads/2019/02/kotlin-logo.png)](https://bit.ly/3yxSFwz)
 
