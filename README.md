@@ -56,27 +56,12 @@ Initialize locationFetcher in your `onCreate()` method
         locationFetcher = LocationFetcher(this)
     }
 ```
-Start and Stop Location Fetcher
+Start Location Fetcher
 ```
-
- /**
-    *
-    start 
-    location 
-    fetcher 
-    * 
-    **/
-    val locationFetcher = LocationFetcher(this)
-    locationFetcher.start(this@MainActivity,R.mipmap.ic_launcher,5000,3000,"Location Fetcher title","Location Fetcher body")
-    
-
- /**
-    *
-    stop 
-    location 
-    fetcher 
-    * 
-    **/
-    locationFetcher?.stop(this@MainActivity)
-    
+val locationFetcher = LocationFetcher(this)
+locationFetcher.start(this@MainActivity,R.mipmap.ic_launcher,5000,3000,"Location Fetcher title","Location Fetcher body")
+```
+Stop Location Fetcher
+```
+locationFetcher?.stop(this@MainActivity)
 ```
