@@ -7,7 +7,7 @@
 [![Generic badge](https://img.shields.io/badge/Vesrsion-1.0.2-1abc9c.svg)](https://shields.io/)
 
 
-'''javascript
+```
 allprojects {
     repositories {
        .
@@ -15,4 +15,4 @@ allprojects {
         maven { url 'https://jitpack.io' }
     }
 }
-'''
+```
