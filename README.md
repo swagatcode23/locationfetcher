@@ -26,3 +26,21 @@ dependencies {
 }
 
 ```
+
+Your Activity class:
+```
+class MainActivity : AppCompatActivity(), LocationFetcherCallback{
+
+    var locationFetcher:LocationFetcher? = null
+    .
+    .
+```
+implement `LocationFetcherCallback` to your activity
+Overrirde `onLocationFetched()` method:
+```
+ override fun onLocationFetched(latitude: Double?, longitude: Double?) {
+        val lat = latitude.toString()
+        val lng = longitude.toString()
+        txt1?.text = "$lat , $lng"
+    }
+```
