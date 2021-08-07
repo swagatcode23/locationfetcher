@@ -7,7 +7,7 @@
 [![Generic badge](https://img.shields.io/badge/Version-1.0.2-1abc9c.svg)](https://shields.io/)
 
 ## Add in your project
-Gradle dependency:
+Gradle project level:
 ```
 allprojects {
     repositories {
@@ -17,7 +17,7 @@ allprojects {
     }
 }
 ```
-
+Gradle app level:
 ```
 dependencies {
     implementation 'com.github.swagatcode23:locationfetcher:<VERSION>'
