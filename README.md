@@ -7,7 +7,7 @@
 [![Generic badge](https://img.shields.io/badge/Version-1.0.2-1abc9c.svg)](https://shields.io/)
 
 ## Add in your project
-Add Gradle dependency:
+Gradle dependency:
 ```
 allprojects {
     repositories {
