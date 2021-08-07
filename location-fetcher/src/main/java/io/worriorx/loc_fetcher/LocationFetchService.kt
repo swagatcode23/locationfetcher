@@ -8,9 +8,7 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
-import android.os.IBinder
-import android.os.Looper
+import android.os.*
 import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
@@ -19,21 +17,35 @@ import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 
+
 class LocationFetchService: Service() {
 
+    var data: Messenger? = null
     private var icon:Int? = null
     private var title: String? = "Location Fetcher"
     private var description: String? = "Running"
     private var loc_interval: Long = 4000
     private var loc_fast_interval: Long = 2000
 
+    var latitude: Double = 0.0
+    var longitude: Double = 0.0
+
     private val locationCallback: LocationCallback = object : LocationCallback(){
         override fun onLocationResult(locationResult: LocationResult) {
             super.onLocationResult(locationResult)
             if (locationResult.lastLocation != null){
-                var latitude: Double = locationResult.lastLocation.latitude
-                var longitude: Double = locationResult.lastLocation.longitude
-                Log.d("LOCATION UPDATE", "Latitude : $latitude, Longitude : $longitude")
+                latitude = locationResult.lastLocation.latitude
+                longitude = locationResult.lastLocation.longitude
+                val fetchedPoints: Message = Message.obtain()
+                val bundle = Bundle()
+                bundle.putDouble("result_lat", latitude)
+                bundle.putDouble("result_long", longitude)
+                fetchedPoints.setData(bundle)
+                try {
+                    data!!.send(fetchedPoints)
+                } catch (e: RemoteException) {
+                    e.printStackTrace()
+                }
             }
         }
     }
@@ -110,9 +122,10 @@ class LocationFetchService: Service() {
             val action = intent.action
             if (action != null){
                 if (action.equals(Constants.ACTION_START_LOCATION_SERVICE)){
-                    loc_fast_interval = intent.getLongExtra("FAST_INTERVAL",2000)
-                    loc_interval = intent.getLongExtra("INTERVAL",4000)
-                    icon = intent.getIntExtra("SMALLICON",0)
+                    data = intent.getParcelableExtra("messenger");
+                    loc_fast_interval = intent.getLongExtra("FAST_INTERVAL", 2000)
+                    loc_interval = intent.getLongExtra("INTERVAL", 4000)
+                    icon = intent.getIntExtra("SMALLICON", 0)
                     title = intent.getStringExtra("TITLE")
                     description = intent.getStringExtra("DESCRIPTION")
                     startLocationService()

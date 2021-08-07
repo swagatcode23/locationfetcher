@@ -1,16 +1,22 @@
 package io.worriorx.locfetchersample
 
-import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import io.worriorx.loc_fetcher.LocationFetcher
+import io.worriorx.loc_fetcher.LocationFetcherCallback
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), LocationFetcherCallback{
+
+    var locationFetcher:LocationFetcher? = null
+
+    var txt1: TextView? = null
 
     companion object{
         val REQUEST_CODE_LOCATION_PERMISSION: Int = 1
@@ -19,7 +25,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        locationFetcher = LocationFetcher(this)
+        txt1 = findViewById(R.id.textView2)
         findViewById<Button>(R.id.mainActivityBtnStart).setOnClickListener {
             if (ContextCompat.checkSelfPermission(applicationContext,
                     android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
@@ -53,10 +60,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startLocationService(){
-      LocationFetcher.start(this@MainActivity,R.mipmap.ic_launcher,5000,3000,"Hello","Locaaaaaaaa")
+        val locationFetcher = LocationFetcher(this)
+      locationFetcher.start(this@MainActivity,R.mipmap.ic_launcher,5000,3000,"Location Fetcher title","Location Fetcher body")
     }
 
     private fun stopLocationService(){
-        LocationFetcher.stop(this@MainActivity)
+        locationFetcher?.stop(this@MainActivity)
     }
+
+    override fun onLocationFetched(latitude: Double?, longitude: Double?) {
+        val lat = latitude.toString()
+        val lng = longitude.toString()
+        txt1?.text = "$lat , $lng"
+    }
+
+
 }
