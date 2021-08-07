@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity(), LocationFetcherCallback{
     .
 ```
 implement `LocationFetcherCallback` to your activity
+
 Overrirde `onLocationFetched()` method:
 ```
  override fun onLocationFetched(latitude: Double?, longitude: Double?) {
