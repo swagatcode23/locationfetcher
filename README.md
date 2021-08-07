@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), LocationFetcherCallback{
     .
     .
 ```
-implement `LocationFetcherCallback` to your activity
+Implement `LocationFetcherCallback` to your Activity or Fragment
 
 Overrirde `onLocationFetched()` method:
 ```
@@ -43,5 +43,16 @@ Overrirde `onLocationFetched()` method:
         val lat = latitude.toString()
         val lng = longitude.toString()
         txt1?.text = "$lat , $lng"
+    }
+```
+Initialize locationFetcher in your `onCreate()` method
+```
+ override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        .
+        .
+        '
+        locationFetcher = LocationFetcher(this)
     }
 ```
