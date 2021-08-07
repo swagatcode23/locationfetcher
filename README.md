@@ -28,7 +28,7 @@ dependencies {
 ```
 
 Your Activity class:
-```
+```kotlin
 class MainActivity : AppCompatActivity(), LocationFetcherCallback{
 
     var locationFetcher:LocationFetcher? = null
@@ -46,7 +46,7 @@ Overrirde `onLocationFetched()` method:
     }
 ```
 Initialize locationFetcher in your `onCreate()` method
-```
+```kotlin
  override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -57,11 +57,11 @@ Initialize locationFetcher in your `onCreate()` method
     }
 ```
 Start Location Fetcher
-```
+```kotlin
 val locationFetcher = LocationFetcher(this)
 locationFetcher.start(this@MainActivity,R.mipmap.ic_launcher,5000,3000,"Location Fetcher title","Location Fetcher body")
 ```
 Stop Location Fetcher
-```
+```kotlin
 locationFetcher?.stop(this@MainActivity)
 ```
