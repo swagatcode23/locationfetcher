@@ -18,5 +18,8 @@ allprojects {
 ```
 
 ```
-implementation 'com.github.swagatcode23:locationfetcher:<--VERSION-->'
+dependencies {
+    implementation 'com.github.swagatcode23:locationfetcher:<VERSION>'
+}
+
 ```
