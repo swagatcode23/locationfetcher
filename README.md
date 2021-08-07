@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity(), LocationFetcherCallback{
 Implement `LocationFetcherCallback` to your Activity or Fragment
 
 Overrirde `onLocationFetched()` method:
-```
+```kotlin
  override fun onLocationFetched(latitude: Double?, longitude: Double?) {
         val lat = latitude.toString()
         val lng = longitude.toString()
