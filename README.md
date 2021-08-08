@@ -33,9 +33,7 @@ Before adding the code in your project, you need to initialize selfcheck for ```
 
 ```kotlin
 class MainActivity : AppCompatActivity(), LocationFetcherCallback{
-    .
-    .   
-    .
+    
     companion object{
         val REQUEST_CODE_LOCATION_PERMISSION: Int = 1
     }
