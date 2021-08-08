@@ -108,9 +108,9 @@ val locationFetcher = LocationFetcher(this)
 locationFetcher.start(this@MainActivity,R.mipmap.ic_launcher,5000,3000,"Location Fetcher title","Location Fetcher body")
 ```
 ### ```start()``` parameters
-|start |goes |here |
+|Method |params |usage |
 |--- |--- |--- |
-|start|goes|here|
+|```start(context: Context ,icon: Int)```|```Context``` , ```Int```|This is default way to call start() method it requires context as you Activity or Fragment implement ```LocationFetcherCallback``` and Int for passing notification icon |
 
 Stop Location Fetcher
 ```kotlin
