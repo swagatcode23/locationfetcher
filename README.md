@@ -87,9 +87,8 @@ Implement `LocationFetcherCallback` to your Activity or Fragment
 Overrirde `onLocationFetched()` method:
 ```kotlin
  override fun onLocationFetched(latitude: Double?, longitude: Double?) {
-        val lat = latitude.toString()
-        val lng = longitude.toString()
-        txt1?.text = "$lat , $lng"
+        //use the lat lng here
+        Log.d(TAG,"Latitude $latitude , Longitude $longitude")
     }
 ```
 Initialize locationFetcher in your `onCreate()` method
