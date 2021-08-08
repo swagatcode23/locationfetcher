@@ -28,6 +28,9 @@ dependencies {
 ```
 
 Your Activity class:
+
+Before adding the code in your project, you need to initialize selfcheck for ```ACCESS_FINE_LOCATION``` in code
+
 ```kotlin
 class MainActivity : AppCompatActivity(), LocationFetcherCallback{
 
