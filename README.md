@@ -58,6 +58,25 @@ class MainActivity : AppCompatActivity(), LocationFetcherCallback{
     }
 ```
 
+Now override ```onRequestPermissionsResult``` method
+```kotlin
+override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_CODE_LOCATION_PERMISSION && grantResults.size > 0){
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                startLocationService()
+            }else{
+                Toast.makeText(applicationContext,"Permission denied!", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+```
+
+Start adding librery component to you project
 ```kotlin
 class MainActivity : AppCompatActivity(), LocationFetcherCallback{
 
