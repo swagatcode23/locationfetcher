@@ -33,6 +33,33 @@ Before adding the code in your project, you need to initialize selfcheck for ```
 
 ```kotlin
 class MainActivity : AppCompatActivity(), LocationFetcherCallback{
+    .
+    .   
+    .
+    companion object{
+        val REQUEST_CODE_LOCATION_PERMISSION: Int = 1
+    }
+    
+     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+       .
+       .
+       .
+            if (ContextCompat.checkSelfPermission(applicationContext,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED){
+                ActivityCompat.requestPermissions(
+                    this@MainActivity,
+                    arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                    REQUEST_CODE_LOCATION_PERMISSION
+                )
+           }
+        }
+    }
+```
+
+```kotlin
+class MainActivity : AppCompatActivity(), LocationFetcherCallback{
 
     var locationFetcher:LocationFetcher? = null
     .
