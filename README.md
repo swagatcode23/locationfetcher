@@ -112,6 +112,9 @@ locationFetcher.start(this@MainActivity,R.mipmap.ic_launcher,5000,3000,"Location
 |--- |--- |--- |
 |```start(context: Context ,icon: Int)```|```Context``` , ```Int```|This is default way to call start() method it requires context as you Activity or Fragment implement ```LocationFetcherCallback``` and Int for passing notification icon|
 |```start(context: Context, icon: Int, interval: Long)```|```Context``` , ```Int```, ```Long```|Here ```Long``` value is for interval of location point capturing|
+|```start(context: Context, icon: Int, interval: Long, fast_interval: Long)```|```Context``` , ```Int```, ```Long``` , ```Long```|Here the other```Long``` value is for fast interval of location point capturing|
+|```start(context: Context,icon: Int, title: String, desciption: String)```|```Context``` , ```Int```, ```String``` , ```String```|```String``` values are for notification title and body|
+|```start(context: Context,icon: Int,interval: Long,fast_interval: Long,title: String,desciption: String)```|```Context``` , ```Int```, ```Long``` , ```Long```, ```String``` , ```String```|All the above parametes required|
 
 Stop Location Fetcher
 ```kotlin
