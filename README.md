@@ -1,6 +1,6 @@
 # locationfetcher
 ## Get continuous location points
-Get Get continuous location points(Lat Lng), it doesn't required background location permission, but you need to paas foreground location permission
+Get continuous location points(Lat Lng), it doesn't required background location permission, but you need to paas foreground location permission
 
 ![giphy](https://user-images.githubusercontent.com/39851751/128608159-e55ccde3-e02b-4f88-ae7b-fdaa8a559d0f.gif)
 
